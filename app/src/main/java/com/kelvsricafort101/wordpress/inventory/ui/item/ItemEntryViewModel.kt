@@ -68,7 +68,7 @@ fun ItemDetails.toItem(): Item = Item(
 )
 
 fun Item.formattedPrice(): String {
-    return NumberFormat.getNumberInstance().format(price)
+    return NumberFormat.getCurrencyInstance().format(price)
 }
 
 /**
