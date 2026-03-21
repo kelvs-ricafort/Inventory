@@ -24,7 +24,7 @@ object AppViewModelProvider {
         }
         // Initializer for ItemEntryViewModel
         initializer {
-            ItemEntryViewModel()
+            ItemEntryViewModel(inventoryApplication().container.itemsRepository)
         }
 
         // Initializer for ItemDetailsViewModel
@@ -42,7 +42,7 @@ object AppViewModelProvider {
 }
 
 /**
- * Extension function to queries for [Application] object and returns an instance of
+ * Extension function to queries for [android.app.Application] object and returns an instance of
  * [InventoryApplication].
  */
 fun CreationExtras.inventoryApplication(): InventoryApplication =

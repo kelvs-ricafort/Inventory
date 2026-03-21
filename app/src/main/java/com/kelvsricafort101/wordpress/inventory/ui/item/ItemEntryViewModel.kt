@@ -5,12 +5,13 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import com.kelvsricafort101.wordpress.inventory.data.Item
+import com.kelvsricafort101.wordpress.inventory.data.ItemsRepository
 import java.text.NumberFormat
 
 /**
  * ViewModel to validate and insert items in the Room database.
  */
-class ItemEntryViewModel: ViewModel() {
+class ItemEntryViewModel(private val itemsRepository: ItemsRepository): ViewModel() {
     /**
      * Holds current item ui state
      */
@@ -24,6 +25,12 @@ class ItemEntryViewModel: ViewModel() {
     fun updateUiState(itemDetails: ItemDetails) {
         itemUiState =
             ItemUiState(itemDetails = itemDetails, isEntryValid = validateInput(itemDetails))
+    }
+
+    suspend fun saveItem() {
+        if (validateInput()) {
+            itemsRepository.insertItem(itemUiState.itemDetails.toItem())
+        }
     }
 
     private fun validateInput(uiState: ItemDetails = itemUiState.itemDetails): Boolean {
@@ -50,7 +57,7 @@ data class ItemDetails(
 
 /**
  * Extension function to convert [ItemDetails] to [Item]. If the value of [ItemDetails.price] is
- * not a valid [Double], then the price will be set to 0.0. Similarly if the value of
+ * not a valid [Double], then the price will be set to 0.0. Similarly, if the value of
  * [ItemDetails.quantity] is not a valid [Int], then the quantity will be set to 0
  */
 fun ItemDetails.toItem(): Item = Item(
