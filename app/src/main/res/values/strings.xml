@@ -20,6 +20,7 @@
     <string name="sell">Sell</string>
     <string name="yes">Yes</string>
     <string name="required_fields">*required fields</string>
+    <string name="home">Home</string>
     <string name="about_app">About App</string>
     <string name="about_app_description">Inventory is an Android application that demonstrates how to manage
         inventory items using a local Room database. You can add, update,
@@ -40,4 +41,5 @@
     <string name="developer_section">Developer Section</string>
     <string name="developer">Developer: %1$s</string>
     <string name="developer_name">Kelvin Ricafort</string>
+    <string name="open_navigation_drawer">Open navigation drawer</string>
 </resources>

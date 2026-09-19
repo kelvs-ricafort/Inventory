@@ -35,6 +35,7 @@ fun InventoryTopAppBar(
     modifier: Modifier = Modifier,
     scrollBehavior: TopAppBarScrollBehavior? = null,
     navigateUp: () -> Unit = {},
+    navigationIcon: @Composable () -> Unit = {},
     actions: @Composable () RowScope.() -> Unit = {}
 ) {
     CenterAlignedTopAppBar(
@@ -51,6 +52,8 @@ fun InventoryTopAppBar(
                         contentDescription = stringResource(R.string.back_button)
                     )
                 }
+            } else {
+                navigationIcon()
             }
         },
         actions = actions
