@@ -7,6 +7,8 @@ import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
+import com.kelvsricafort101.wordpress.inventory.ui.aboutapp.AboutAppDestination
+import com.kelvsricafort101.wordpress.inventory.ui.aboutapp.AboutAppScreen
 import com.kelvsricafort101.wordpress.inventory.ui.home.HomeDestination
 import com.kelvsricafort101.wordpress.inventory.ui.home.HomeScreen
 import com.kelvsricafort101.wordpress.inventory.ui.item.ItemDetailsDestination
@@ -34,6 +36,16 @@ fun InventoryNavHost(
                 navigateToItemEntry = { navController.navigate(ItemEntryDestination.route) },
                 navigateToItemUpdate = {
                     navController.navigate("${ItemDetailsDestination.route}/${it}")
+                },
+                navigateToAboutApp = {
+                    navController.navigate(AboutAppDestination.route)
+                }
+            )
+        }
+        composable(route = AboutAppDestination.route) {
+            AboutAppScreen(
+                onNavigateUp = {
+                    navController.navigateUp()
                 }
             )
         }

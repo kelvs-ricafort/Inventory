@@ -20,4 +20,24 @@
     <string name="sell">Sell</string>
     <string name="yes">Yes</string>
     <string name="required_fields">*required fields</string>
+    <string name="about_app">About App</string>
+    <string name="about_app_description">Inventory is an Android application that demonstrates how to manage
+        inventory items using a local Room database. You can add, update,
+        sell, and delete items while keeping inventory data stored locally
+        on the device.
+    </string>
+    <string name="features">Features</string>
+    <string name="feature_add_item">Add inventory items</string>
+    <string name="feature_update_item">Update inventory items</string>
+    <string name="feature_sell_item">Sell inventory items</string>
+    <string name="feature_delete_item">Delete inventory items</string>
+    <string name="feature_track_quantity">Track inventory quantities</string>
+    <string name="feature_sync">Online data synchronization</string>
+    <string name="feature_offline">Offline local data storage</string>
+    <string name="app_info">App Info</string>
+    <string name="version">Version: %1$s</string>
+    <string name="build">Build: %1$d</string>
+    <string name="developer_section">Developer Section</string>
+    <string name="developer">Developer: %1$s</string>
+    <string name="developer_name">Kelvin Ricafort</string>
 </resources>
