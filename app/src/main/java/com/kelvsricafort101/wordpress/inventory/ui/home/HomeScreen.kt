@@ -13,7 +13,6 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
-import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -79,16 +78,6 @@ fun HomeScreen(
                         Icon(
                             imageVector = Icons.Default.Menu,
                             contentDescription = stringResource(R.string.open_navigation_drawer)
-                        )
-                    }
-                },
-                actions = {
-                    IconButton(
-                        onClick = navigateToAboutApp
-                    ) {
-                        Icon(
-                            imageVector = Icons.Default.Info,
-                            contentDescription = stringResource(R.string.about_app)
                         )
                     }
                 }

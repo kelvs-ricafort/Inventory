@@ -42,4 +42,9 @@
     <string name="developer">Developer: %1$s</string>
     <string name="developer_name">Kelvin Ricafort</string>
     <string name="open_navigation_drawer">Open navigation drawer</string>
+    <string name="settings">Settings</string>
+    <string name="appearance">Appearance</string>
+    <string name="dark_mode">Dark Mode</string>
+    <string name="dark_mode_description">Use a dark color theme throughout the app.</string>
+    <string name="language">Language</string>
 </resources>

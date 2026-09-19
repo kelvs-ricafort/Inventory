@@ -9,6 +9,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.navArgument
+import com.kelvsricafort101.wordpress.inventory.data.AppLanguage
 import com.kelvsricafort101.wordpress.inventory.drawer.InventoryNavigationDrawer
 import com.kelvsricafort101.wordpress.inventory.ui.aboutapp.AboutAppDestination
 import com.kelvsricafort101.wordpress.inventory.ui.aboutapp.AboutAppScreen
@@ -20,6 +21,9 @@ import com.kelvsricafort101.wordpress.inventory.ui.item.ItemEditDestination
 import com.kelvsricafort101.wordpress.inventory.ui.item.ItemEditScreen
 import com.kelvsricafort101.wordpress.inventory.ui.item.ItemEntryDestination
 import com.kelvsricafort101.wordpress.inventory.ui.item.ItemEntryScreen
+import com.kelvsricafort101.wordpress.inventory.ui.settings.SettingsDestination
+import com.kelvsricafort101.wordpress.inventory.ui.settings.SettingsScreen
+import com.kelvsricafort101.wordpress.inventory.ui.settings.SettingsUiState
 
 /**
  * Provides Navigation graph for the application.
@@ -27,6 +31,9 @@ import com.kelvsricafort101.wordpress.inventory.ui.item.ItemEntryScreen
 @Composable
 fun InventoryNavHost(
     navController: NavHostController,
+    settingsUiState: SettingsUiState,
+    onDarkModeChanged: (Boolean) -> Unit,
+    onLanguageSelected: (AppLanguage) -> Unit,
     modifier: Modifier = Modifier
 ) {
     val navBackStackEntry by navController.currentBackStackEntryAsState()
@@ -62,6 +69,7 @@ fun InventoryNavHost(
                     openDrawer = openDrawer
                 )
             }
+            // AboutApp
             composable(route = AboutAppDestination.route) {
                 AboutAppScreen(
                     onNavigateUp = {
@@ -69,6 +77,19 @@ fun InventoryNavHost(
                     }
                 )
             }
+            // SettingsScreen
+            composable(route = SettingsDestination.route) {
+                SettingsScreen(
+                    onNavigateUp = {
+                        navController.navigateUp()
+                    },
+                    darkMode = settingsUiState.darkMode,
+                    onDarkModeChange = onDarkModeChanged,
+                    selectedLanguage = settingsUiState.appLanguage,
+                    onLanguageSelected = onLanguageSelected
+                )
+            }
+            // ItemEntryScreen
             composable(route = ItemEntryDestination.route) {
                 ItemEntryScreen(
                     navigateBack = { navController.popBackStack() },
