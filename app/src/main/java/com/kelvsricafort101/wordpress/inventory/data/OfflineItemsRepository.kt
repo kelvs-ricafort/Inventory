@@ -1,0 +1,3 @@
+package com.kelvsricafort101.wordpress.inventory.data
+
+class OfflineItemsRepository: ItemsRepository
