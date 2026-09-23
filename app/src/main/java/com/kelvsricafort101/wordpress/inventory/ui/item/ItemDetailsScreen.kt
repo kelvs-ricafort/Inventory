@@ -17,7 +17,6 @@ import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -26,6 +25,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
@@ -36,9 +36,11 @@ import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.kelvsricafort101.wordpress.inventory.InventoryTopAppBar
 import com.kelvsricafort101.wordpress.inventory.R
 import com.kelvsricafort101.wordpress.inventory.data.Item
+import com.kelvsricafort101.wordpress.inventory.ui.AppViewModelProvider
 import com.kelvsricafort101.wordpress.inventory.ui.navigation.NavigationDestination
 import com.kelvsricafort101.wordpress.inventory.ui.theme.InventoryTheme
 
@@ -53,8 +55,11 @@ object ItemDetailsDestination : NavigationDestination {
 fun ItemDetailsScreen(
     navigateToEditItem: (Int) -> Unit,
     navigateBack: () -> Unit,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    viewModel: ItemDetailsViewModel = viewModel(factory = AppViewModelProvider.Factory)
 ) {
+    val uiState = viewModel.uiState.collectAsState()
+
     Scaffold(
         topBar = {
             InventoryTopAppBar(
@@ -78,7 +83,7 @@ fun ItemDetailsScreen(
         modifier = modifier
     ) { innerPadding ->
         ItemDetailsBody(
-            itemDetailsUiState = ItemDetailsUiState(),
+            itemDetailsUiState = uiState.value,
             onSellItem = { },
             onDelete = { },
             modifier = Modifier
