@@ -22,6 +22,7 @@ import com.kelvsricafort101.wordpress.inventory.ui.item.ItemEntryDestination
 import com.kelvsricafort101.wordpress.inventory.ui.item.ItemEntryScreen
 import com.kelvsricafort101.wordpress.inventory.ui.settings.SettingsDestination
 import com.kelvsricafort101.wordpress.inventory.ui.settings.SettingsScreen
+import com.kelvsricafort101.wordpress.inventory.ui.settings.SettingsUiState
 
 /**
  * Provides Navigation graph for the application.
@@ -29,6 +30,9 @@ import com.kelvsricafort101.wordpress.inventory.ui.settings.SettingsScreen
 @Composable
 fun InventoryNavHost(
     navController: NavHostController,
+    settingsUiState: SettingsUiState,
+    onDarkModeChanged: (Boolean) -> Unit,
+    onLanguageSelected: (AppLanguage) -> Unit,
     modifier: Modifier = Modifier
 ) {
     val navBackStackEntry by navController.currentBackStackEntryAsState()
@@ -75,10 +79,10 @@ fun InventoryNavHost(
                     onNavigateUp = {
                         navController.navigateUp()
                     },
-                    darkMode = false,
-                    onDarkModeChanged = {},
+                    darkMode = settingsUiState.darkMode,
+                    onDarkModeChanged = onDarkModeChanged,
                     selectedLanguage = AppLanguage.ENGLISH,
-                    onLanguageSelected = {}
+                    onLanguageSelected = onLanguageSelected
                 )
             }
 
