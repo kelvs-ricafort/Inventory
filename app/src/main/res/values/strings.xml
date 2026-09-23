@@ -43,4 +43,6 @@
     <string name="developer_info">Developer info</string>
     <string name="developer">Developer: %1$s</string>
     <string name="developer_name">Kelvin Ricafort</string>
+
+    <string name="open_navigation_drawer">Open Navigation Drawer</string>
 </resources>

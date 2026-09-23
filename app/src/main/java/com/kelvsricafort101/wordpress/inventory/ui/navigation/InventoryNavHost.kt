@@ -1,11 +1,13 @@
 package com.kelvsricafort101.wordpress.inventory.ui.navigation
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.navArgument
 import com.kelvsricafort101.wordpress.inventory.ui.about.AboutAppDestination
 import com.kelvsricafort101.wordpress.inventory.ui.about.AboutAppScreen
@@ -26,56 +28,73 @@ fun InventoryNavHost(
     navController: NavHostController,
     modifier: Modifier = Modifier
 ) {
-    NavHost(
-        navController = navController,
-        startDestination = HomeDestination.route,
-        modifier = modifier
-    ) {
-        composable(route = HomeDestination.route) {
-            HomeScreen(
-                navigateToItemEntry = { navController.navigate(ItemEntryDestination.route) },
-                navigateToAboutApp = { navController.navigate(AboutAppDestination.route) },
-                navigateToItemUpdate = {
-                    navController.navigate("${ItemDetailsDestination.route}/${it}")
-                }
-            )
-        }
+    val navBackStackEntry by navController.currentBackStackEntryAsState()
+    val currentRoute = navBackStackEntry?.destination?.route
 
-        composable(route = AboutAppDestination.route) {
-            AboutAppScreen(
-                onNavigateUp = {
-                    navController.navigateUp()
+    InventoryNavigationDrawer(
+        selectedRoute = currentRoute,
+        onNavigate = { route ->
+            navController.navigate(route) {
+                popUpTo(HomeDestination.route) {
+                    saveState = true
                 }
-            )
-        }
 
-        composable(route = ItemEntryDestination.route) {
-            ItemEntryScreen(
-                navigateBack = { navController.popBackStack() },
-                onNavigateUp = { navController.navigateUp() }
-            )
+                launchSingleTop = true
+                restoreState = true
+            }
         }
-        composable(
-            route = ItemDetailsDestination.routeWithArgs,
-            arguments = listOf(navArgument(ItemDetailsDestination.itemIdArg) {
-                type = NavType.IntType
-            })
+    ) { openDrawer ->
+        NavHost(
+            navController = navController,
+            startDestination = HomeDestination.route,
+            modifier = modifier
         ) {
-            ItemDetailsScreen(
-                navigateToEditItem = { navController.navigate("${ItemEditDestination.route}/$it") },
-                navigateBack = { navController.navigateUp() }
-            )
-        }
-        composable(
-            route = ItemEditDestination.routeWithArgs,
-            arguments = listOf(navArgument(ItemEditDestination.itemIdArg) {
-                type = NavType.IntType
-            })
-        ) {
-            ItemEditScreen(
-                navigateBack = { navController.popBackStack() },
-                onNavigateUp = { navController.navigateUp() }
-            )
+            composable(route = HomeDestination.route) {
+                HomeScreen(
+                    navigateToItemEntry = { navController.navigate(ItemEntryDestination.route) },
+                    navigateToItemUpdate = {
+                        navController.navigate("${ItemDetailsDestination.route}/${it}")
+                    },
+                    openDrawer = openDrawer
+                )
+            }
+
+            composable(route = AboutAppDestination.route) {
+                AboutAppScreen(
+                    onNavigateUp = {
+                        navController.navigateUp()
+                    }
+                )
+            }
+
+            composable(route = ItemEntryDestination.route) {
+                ItemEntryScreen(
+                    navigateBack = { navController.popBackStack() },
+                    onNavigateUp = { navController.navigateUp() }
+                )
+            }
+            composable(
+                route = ItemDetailsDestination.routeWithArgs,
+                arguments = listOf(navArgument(ItemDetailsDestination.itemIdArg) {
+                    type = NavType.IntType
+                })
+            ) {
+                ItemDetailsScreen(
+                    navigateToEditItem = { navController.navigate("${ItemEditDestination.route}/$it") },
+                    navigateBack = { navController.navigateUp() }
+                )
+            }
+            composable(
+                route = ItemEditDestination.routeWithArgs,
+                arguments = listOf(navArgument(ItemEditDestination.itemIdArg) {
+                    type = NavType.IntType
+                })
+            ) {
+                ItemEditScreen(
+                    navigateBack = { navController.popBackStack() },
+                    onNavigateUp = { navController.navigateUp() }
+                )
+            }
         }
     }
 }

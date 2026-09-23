@@ -13,7 +13,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
-import androidx.compose.material.icons.filled.Info
+import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.FloatingActionButton
@@ -55,7 +55,7 @@ object HomeDestination: NavigationDestination {
 fun HomeScreen(
     navigateToItemEntry: () -> Unit,
     navigateToItemUpdate: (Int) -> Unit,
-    navigateToAboutApp: () -> Unit,
+    openDrawer: () -> Unit,
     modifier: Modifier = Modifier,
     viewModel: HomeViewModel = viewModel(factory = AppViewModelProvider.Factory)
 ) {
@@ -69,13 +69,13 @@ fun HomeScreen(
                 title = stringResource(HomeDestination.titleRes),
                 canNavigateBack = false,
                 scrollBehavior = scrollBehavior,
-                actions = {
+                navigationIcon = {
                     IconButton(
-                        onClick = navigateToAboutApp
+                        onClick = openDrawer
                     ) {
                         Icon(
-                            imageVector = Icons.Default.Info,
-                            contentDescription = stringResource(R.string.about_app)
+                            imageVector = Icons.Default.Menu,
+                            contentDescription = stringResource(R.string.open_navigation_drawer)
                         )
                     }
                 }
