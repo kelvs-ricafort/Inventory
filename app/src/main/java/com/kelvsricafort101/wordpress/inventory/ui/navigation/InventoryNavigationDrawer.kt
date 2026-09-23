@@ -2,8 +2,9 @@ package com.kelvsricafort101.wordpress.inventory.ui.navigation
 
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Info
-import androidx.compose.material.icons.filled.Inventory
+import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.DrawerValue
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -20,6 +21,7 @@ import androidx.compose.ui.unit.dp
 import com.kelvsricafort101.wordpress.inventory.R
 import com.kelvsricafort101.wordpress.inventory.ui.about.AboutAppDestination
 import com.kelvsricafort101.wordpress.inventory.ui.home.HomeDestination
+import com.kelvsricafort101.wordpress.inventory.ui.settings.SettingsDestination
 import kotlinx.coroutines.launch
 
 @Composable
@@ -50,7 +52,7 @@ fun InventoryNavigationDrawer(
                 NavigationDrawerItem(
                     label = {
                         Text(
-                            text = stringResource(R.string.app_name)
+                            text = stringResource(R.string.home)
                         )
                     },
                     selected = selectedRoute == HomeDestination.route,
@@ -62,7 +64,7 @@ fun InventoryNavigationDrawer(
                     },
                     icon = {
                         Icon(
-                            imageVector = Icons.Default.Inventory,
+                            imageVector = Icons.Default.Home,
                             contentDescription = null
                         )
                     }
@@ -84,6 +86,27 @@ fun InventoryNavigationDrawer(
                     icon = {
                         Icon(
                             imageVector = Icons.Default.Info,
+                            contentDescription = null
+                        )
+                    }
+                )
+
+                NavigationDrawerItem(
+                    label = {
+                        Text(
+                            text = stringResource(R.string.settings)
+                        )
+                    },
+                    selected = selectedRoute == SettingsDestination.route,
+                    onClick = {
+                        scope.launch {
+                            drawerState.close()
+                        }
+                        onNavigate(SettingsDestination.route)
+                    },
+                    icon = {
+                        Icon(
+                            imageVector = Icons.Default.Settings,
                             contentDescription = null
                         )
                     }

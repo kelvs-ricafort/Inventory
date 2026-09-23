@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="18dp"
+    android:viewportWidth="24"
+    android:viewportHeight="18">
+
+    <!-- Red top -->
+    <path
+        android:fillColor="#AA151B"
+        android:pathData="M0,0h24v4.5h-24z" />
+
+    <!-- Yellow middle -->
+    <path
+        android:fillColor="#F1BF00"
+        android:pathData="M0,4.5h24v9h-24z" />
+
+    <!-- Red bottom -->
+    <path
+        android:fillColor="#AA151B"
+        android:pathData="M0,13.5h24v4.5h-24z" />
+
+    <!-- Simplified coat of arms -->
+    <path
+        android:fillColor="#AA151B"
+        android:pathData="M5,6h1.8v4h-1.8z" />
+
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M5.3,6.4h1.2v1.2h-1.2z" />
+
+    <path
+        android:fillColor="#AA151B"
+        android:pathData="M5.3,8h1.2v1.5h-1.2z" />
+</vector>

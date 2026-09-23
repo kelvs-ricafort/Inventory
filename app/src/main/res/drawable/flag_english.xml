@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="18dp"
+    android:viewportWidth="24"
+    android:viewportHeight="18">
+
+    <!-- White background -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M0,0h24v18h-24z" />
+
+    <!-- Red stripes -->
+    <path
+        android:fillColor="#B22234"
+        android:pathData="M0,0h24v2h-24zM0,4h24v2h-24zM0,8h24v2h-24zM0,12h24v2h-24zM0,16h24v2h-24z" />
+
+    <!-- Blue canton -->
+    <path
+        android:fillColor="#3C3B6E"
+        android:pathData="M0,0h10.5v9.7h-10.5z" />
+
+    <!-- Stars -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M2,1.2l0.3,0.7h0.8l-0.6,0.5l0.2,0.7l-0.7,-0.4l-0.7,0.4l0.2,-0.7l-0.6,-0.5h0.8zM5,1.2l0.3,0.7h0.8l-0.6,0.5l0.2,0.7l-0.7,-0.4l-0.7,0.4l0.2,-0.7l-0.6,-0.5h0.8zM8,1.2l0.3,0.7h0.8l-0.6,0.5l0.2,0.7l-0.7,-0.4l-0.7,0.4l0.2,-0.7l-0.6,-0.5h0.8zM3.5,3.8l0.3,0.7h0.8l-0.6,0.5l0.2,0.7l-0.7,-0.4l-0.7,0.4l0.2,-0.7l-0.6,-0.5h0.8zM6.5,3.8l0.3,0.7h0.8l-0.6,0.5l0.2,0.7l-0.7,-0.4l-0.7,0.4l0.2,-0.7l-0.6,-0.5h0.8zM2,6.4l0.3,0.7h0.8l-0.6,0.5l0.2,0.7l-0.7,-0.4l-0.7,0.4l0.2,-0.7l-0.6,-0.5h0.8zM5,6.4l0.3,0.7h0.8l-0.6,0.5l0.2,0.7l-0.7,-0.4l-0.7,0.4l0.2,-0.7l-0.6,-0.5h0.8zM8,6.4l0.3,0.7h0.8l-0.6,0.5l0.2,0.7l-0.7,-0.4l-0.7,0.4l0.2,-0.7l-0.6,-0.5h0.8z" />
+</vector>

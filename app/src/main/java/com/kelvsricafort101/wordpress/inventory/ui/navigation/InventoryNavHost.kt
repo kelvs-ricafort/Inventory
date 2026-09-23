@@ -9,6 +9,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.navArgument
+import com.kelvsricafort101.wordpress.inventory.data.AppLanguage
 import com.kelvsricafort101.wordpress.inventory.ui.about.AboutAppDestination
 import com.kelvsricafort101.wordpress.inventory.ui.about.AboutAppScreen
 import com.kelvsricafort101.wordpress.inventory.ui.home.HomeDestination
@@ -19,6 +20,8 @@ import com.kelvsricafort101.wordpress.inventory.ui.item.ItemEditDestination
 import com.kelvsricafort101.wordpress.inventory.ui.item.ItemEditScreen
 import com.kelvsricafort101.wordpress.inventory.ui.item.ItemEntryDestination
 import com.kelvsricafort101.wordpress.inventory.ui.item.ItemEntryScreen
+import com.kelvsricafort101.wordpress.inventory.ui.settings.SettingsDestination
+import com.kelvsricafort101.wordpress.inventory.ui.settings.SettingsScreen
 
 /**
  * Provides Navigation graph for the application.
@@ -58,12 +61,24 @@ fun InventoryNavHost(
                     openDrawer = openDrawer
                 )
             }
-
+            // About App
             composable(route = AboutAppDestination.route) {
                 AboutAppScreen(
                     onNavigateUp = {
                         navController.navigateUp()
                     }
+                )
+            }
+            // Settings App
+            composable(route = SettingsDestination.route) {
+                SettingsScreen(
+                    onNavigateUp = {
+                        navController.navigateUp()
+                    },
+                    darkMode = false,
+                    onDarkModeChanged = {},
+                    selectedLanguage = AppLanguage.ENGLISH,
+                    onLanguageSelected = {}
                 )
             }
 
