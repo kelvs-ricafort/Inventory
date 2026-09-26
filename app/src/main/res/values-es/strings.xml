@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Inventory</string>
+
+    <!-- General -->
+    <string name="attention">Atención</string>
+    <string name="back_button">Atrás</string>
+    <string name="delete">Eliminar</string>
+    <string name="delete_question">¿Está seguro de que desea eliminarlo?</string>
+    <string name="no">No</string>
+    <string name="yes">Sí</string>
+
+    <!-- Empty State -->
+    <string name="no_item_description">¡Vaya!\nNo hay artículos en el inventario.\nToque + para agregar uno.</string>
+
+    <!-- Items -->
+    <string name="item">Artículo</string>
+    <string name="item_entry_title">Agregar artículo</string>
+    <string name="edit_item_title">Editar artículo</string>
+    <string name="item_detail_title">Detalles del artículo</string>
+
+    <string name="item_name_req">Nombre del artículo*</string>
+    <string name="item_price_req">Precio del artículo*</string>
+    <string name="quantity_req">Cantidad en inventario*</string>
+
+    <string name="price">Precio</string>
+    <string name="quantity_in_stock">Cantidad en inventario</string>
+    <string name="in_stock">%d en inventario</string>
+
+    <string name="save_action">Guardar</string>
+    <string name="sell">Vender</string>
+    <string name="required_fields">* campos obligatorios</string>
+
+    <!-- Navigation -->
+    <string name="home">Inicio</string>
+    <string name="about_app">Acerca de la aplicación</string>
+    <string name="settings">Configuración</string>
+    <string name="open_navigation_drawer">Abrir menú de navegación</string>
+
+    <!-- About App -->
+    <string name="about_app_description">Una aplicación de seguimiento de inventario para agregar, actualizar, vender y eliminar artículos.</string>
+    <string name="features">Características</string>
+
+    <string name="feature_add_item">Agregar artículos al inventario</string>
+    <string name="feature_update_item">Actualizar artículos del inventario</string>
+    <string name="feature_sell_item">Vender artículos del inventario</string>
+    <string name="feature_delete_item">Eliminar artículos del inventario</string>
+    <string name="feature_track_quantity">Controlar las cantidades del inventario</string>
+    <string name="feature_offline">Almacenamiento local de datos sin conexión</string>
+
+    <!-- App Info -->
+    <string name="app_info">Información de la aplicación</string>
+    <string name="version">Versión: %1$s</string>
+    <string name="build">Compilación: %1$d</string>
+
+    <!-- Developer -->
+    <string name="developer_info">Información del desarrollador</string>
+    <string name="developer">Desarrollador: %1$s</string>
+    <string name="developer_name">Kelvin Ricafort</string>
+
+    <!-- Settings -->
+    <string name="appearance">Apariencia</string>
+    <string name="dark_mode">Modo oscuro</string>
+    <string name="dark_mode_description">Usar un tema de colores oscuro en toda la aplicación.</string>
+
+    <!-- Language -->
+    <string name="language">Idioma</string>
+    <string name="language_english">Inglés</string>
+    <string name="language_filipino">Filipino</string>
+    <string name="language_spanish">Español</string>
+</resources>

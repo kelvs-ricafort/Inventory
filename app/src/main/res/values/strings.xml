@@ -52,4 +52,7 @@
     <string name="dark_mode">Dark Mode</string>
     <string name="dark_mode_description">Use a dark color theme throughout the app.</string>
     <string name="language">Language</string>
+    <string name="language_english">English</string>
+    <string name="language_filipino">Filipino</string>
+    <string name="language_spanish">Spanish</string>
 </resources>

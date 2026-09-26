@@ -1,26 +1,27 @@
 package com.kelvsricafort101.wordpress.inventory.data
 
 import androidx.annotation.DrawableRes
+import androidx.annotation.StringRes
 import com.kelvsricafort101.wordpress.inventory.R
 
 enum class AppLanguage(
     val code: String,
-    val displayName: String,
+    @StringRes val displayNameRes: Int,
     @DrawableRes val flagRes: Int
 ) {
     ENGLISH(
         code = "en",
-        displayName = "English",
+        displayNameRes = R.string.language_english,
         flagRes = R.drawable.flag_english
     ),
     FILIPINO(
         code = "fil",
-        displayName = "Filipino",
+        displayNameRes = R.string.language_filipino,
         flagRes = R.drawable.flag_filipino
     ),
     SPANISH(
         code = "es",
-        displayName = "Spanish",
+        displayNameRes = R.string.language_spanish,
         flagRes = R.drawable.flag_spanish
     )
 }

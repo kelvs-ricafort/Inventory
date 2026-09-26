@@ -33,6 +33,7 @@ fun LanguageSelector(
     onLanguageSelected: (AppLanguage) -> Unit
 ) {
     var expanded by remember { mutableStateOf(false) }
+    val selectedLanguageName = stringResource(selectedLanguage.displayNameRes)
 
     ExposedDropdownMenuBox(
         expanded = expanded,
@@ -41,7 +42,7 @@ fun LanguageSelector(
         }
     ) {
         OutlinedTextField(
-            value = selectedLanguage.displayName,
+            value = selectedLanguageName,
             onValueChange = {},
             readOnly = true,
             label = {
@@ -52,8 +53,12 @@ fun LanguageSelector(
             leadingIcon = {
                 Image(
                     painter = painterResource(selectedLanguage.flagRes),
-                    contentDescription = selectedLanguage.displayName,
-                    modifier = Modifier.size(width = 24.dp, height = 18.dp))
+                    contentDescription = selectedLanguageName,
+                    modifier = Modifier.size(
+                        width = 24.dp,
+                        height = 18.dp
+                    )
+                )
             },
             trailingIcon = {
                 ExposedDropdownMenuDefaults.TrailingIcon(
@@ -61,7 +66,9 @@ fun LanguageSelector(
                 )
             },
             modifier = Modifier
-                .menuAnchor(ExposedDropdownMenuAnchorType.PrimaryNotEditable)
+                .menuAnchor(
+                    ExposedDropdownMenuAnchorType.PrimaryNotEditable
+                )
                 .fillMaxWidth()
         )
 
@@ -72,6 +79,8 @@ fun LanguageSelector(
             }
         ) {
             AppLanguage.entries.forEach { language ->
+                val languageName = stringResource(language.displayNameRes)
+
                 DropdownMenuItem(
                     text = {
                         Row(
@@ -80,11 +89,15 @@ fun LanguageSelector(
                         ) {
                             Image(
                                 painter = painterResource(language.flagRes),
-                                contentDescription = language.displayName,
-                                modifier = Modifier.size(width = 24.dp, height = 18.dp)
+                                contentDescription = languageName,
+                                modifier = Modifier.size(
+                                    width = 24.dp,
+                                    height = 18.dp
+                                )
                             )
+
                             Text(
-                                text = language.displayName
+                                text = languageName
                             )
                         }
                     },

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Inventory</string>
+
+    <string name="attention">Pansin</string>
+    <string name="back_button">Bumalik</string>
+    <string name="delete">Tanggalin</string>
+    <string name="delete_question">Sigurado ka bang gusto mong tanggalin?</string>
+
+    <string name="no_item_description">Oops!\nWalang laman ang imbentaryo.\nI-tap ang + para magdagdag.</string>
+
+    <string name="edit_item_title">I-edit ang Item</string>
+    <string name="item">Item</string>
+    <string name="item_detail_title">Detalye ng Item</string>
+    <string name="item_entry_title">Magdagdag ng Item</string>
+
+    <string name="item_name_req">Pangalan ng Item*</string>
+    <string name="item_price_req">Presyo ng Item*</string>
+
+    <string name="no">Hindi</string>
+    <string name="price">Presyo</string>
+    <string name="quantity_in_stock">Dami sa stock</string>
+    <string name="in_stock">%d nasa stock</string>
+    <string name="quantity_req">Dami sa Stock*</string>
+
+    <string name="save_action">I-save</string>
+    <string name="sell">Ibenta</string>
+    <string name="yes">Oo</string>
+
+    <string name="required_fields">* kinakailangang field</string>
+
+    <string name="home">Home</string>
+
+    <string name="about_app">Tungkol sa App</string>
+
+    <string name="about_app_description">
+        Ang Inventory ay isang Android application na nagpapakita kung paano
+        pamahalaan ang mga item sa imbentaryo gamit ang lokal na Room database.
+        Maaari kang magdagdag, mag-update, magbenta, at magtanggal ng mga item
+        habang nakaimbak nang lokal sa device ang datos ng imbentaryo.
+    </string>
+
+    <string name="features">Mga Tampok</string>
+    <string name="feature_add_item">Magdagdag ng mga item sa imbentaryo</string>
+    <string name="feature_update_item">Mag-update ng mga item sa imbentaryo</string>
+    <string name="feature_sell_item">Magbenta ng mga item sa imbentaryo</string>
+    <string name="feature_delete_item">Magtanggal ng mga item sa imbentaryo</string>
+    <string name="feature_track_quantity">Subaybayan ang dami ng imbentaryo</string>
+    <string name="feature_offline">Lokal na pag-iimbak ng datos para sa offline na paggamit</string>
+
+    <string name="app_info">Impormasyon ng App</string>
+    <string name="version">Bersyon: %1$s</string>
+    <string name="build">Build: %1$d</string>
+
+    <string name="developer_info">Impormasyon ng Developer</string>
+    <string name="developer">Developer: %1$s</string>
+    <string name="developer_name">Kelvin Ricafort</string>
+
+    <string name="open_navigation_drawer">Buksan ang Navigation Drawer</string>
+
+    <string name="settings">Mga Setting</string>
+    <string name="appearance">Hitsura</string>
+    <string name="dark_mode">Dark Mode</string>
+    <string name="dark_mode_description">Gumamit ng madilim na tema sa buong app.</string>
+
+    <string name="language">Wika</string>
+    <string name="language_english">Ingles</string>
+    <string name="language_filipino">Filipino</string>
+    <string name="language_spanish">Español</string>
+</resources>
