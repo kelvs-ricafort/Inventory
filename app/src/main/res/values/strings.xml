@@ -34,6 +34,7 @@
     <string name="feature_update_item">Update inventory items</string>
     <string name="feature_sell_item">Sell inventory items</string>
     <string name="feature_delete_item">Delete inventory items</string>
+    <string name="feature_sync">Online Data Synchronization</string>
     <string name="feature_track_quantity">Track inventory quantities</string>
     <string name="feature_offline">Offline local data storage</string>
     <!-- App Info -->
@@ -55,4 +56,10 @@
     <string name="language_english">English</string>
     <string name="language_filipino">Filipino</string>
     <string name="language_spanish">Spanish</string>
+    <!-- Cloud Sync -->
+    <string name="cloud_sync">Cloud Sync</string>
+    <string name="sync_to_cloud">Sync to Cloud</string>
+    <string name="sync_to_cloud_description">Synchronize your inventory with Firebase when an internet connection is available.</string>
+    <string name="syncing">Syncing…</string>
+    <string name="sync_completed">Sync completed</string>
 </resources>

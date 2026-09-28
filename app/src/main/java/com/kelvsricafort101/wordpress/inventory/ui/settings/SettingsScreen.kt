@@ -6,6 +6,8 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Button
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
@@ -36,6 +38,8 @@ fun SettingsScreen(
     onDarkModeChanged: (Boolean) -> Unit,
     selectedLanguage: AppLanguage,
     onLanguageSelected: (AppLanguage) -> Unit,
+    onSyncToCloud: () -> Unit,
+    isSyncing: Boolean,
     modifier: Modifier = Modifier
 ) {
     Scaffold(
@@ -91,6 +95,48 @@ fun SettingsScreen(
                 selectedLanguage = selectedLanguage,
                 onLanguageSelected = onLanguageSelected
             )
+
+            HorizontalDivider()
+
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Column(
+                    modifier = Modifier.weight(1f)
+                ) {
+                    Text(
+                        text = stringResource(R.string.sync_to_cloud),
+                        style = MaterialTheme.typography.bodyLarge
+                    )
+
+                    Text(
+                        text = if (isSyncing) {
+                            stringResource(R.string.syncing)
+                        } else {
+                            stringResource(R.string.sync_to_cloud_description)
+                        },
+                        style = MaterialTheme.typography.bodyMedium
+                    )
+                }
+
+                Button(
+                    onClick = onSyncToCloud,
+                    enabled = !isSyncing
+                ) {
+                    if (isSyncing) {
+                        CircularProgressIndicator(
+                            modifier = Modifier
+                                .padding(2.dp),
+                            strokeWidth = 2.dp
+                        )
+                    } else {
+                        Text(
+                            text = stringResource(R.string.sync_to_cloud)
+                        )
+                    }
+                }
+            }
         }
     }
 }
@@ -104,7 +150,9 @@ fun SettingsScreenPreview() {
             darkMode = false,
             onDarkModeChanged = {},
             selectedLanguage = AppLanguage.ENGLISH,
-            onLanguageSelected = {}
+            onLanguageSelected = {},
+            onSyncToCloud = {},
+            isSyncing = false
         )
     }
 }
@@ -119,7 +167,9 @@ fun SettingsScreenDarkPreview() {
                 darkMode = false,
                 onDarkModeChanged = {},
                 selectedLanguage = AppLanguage.ENGLISH,
-                onLanguageSelected = {}
+                onLanguageSelected = {},
+                onSyncToCloud = {},
+                isSyncing = false
             )
         }
     }

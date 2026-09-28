@@ -45,6 +45,7 @@
     <string name="feature_update_item">Actualizar artículos del inventario</string>
     <string name="feature_sell_item">Vender artículos del inventario</string>
     <string name="feature_delete_item">Eliminar artículos del inventario</string>
+    <string name="feature_sync">Sincronización de datos en línea</string>
     <string name="feature_track_quantity">Controlar las cantidades del inventario</string>
     <string name="feature_offline">Almacenamiento local de datos sin conexión</string>
 
@@ -68,4 +69,9 @@
     <string name="language_english">Inglés</string>
     <string name="language_filipino">Filipino</string>
     <string name="language_spanish">Español</string>
+    <string name="cloud_sync">Sincronización en la nube</string>
+    <string name="sync_to_cloud">Sincronizar con la nube</string>
+    <string name="sync_to_cloud_description">Sincroniza tu inventario con Firebase cuando tengas conexión a internet.</string>
+    <string name="syncing">Sincronizando…</string>
+    <string name="sync_completed">Sincronización completada</string>
 </resources>

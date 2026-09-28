@@ -13,7 +13,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalContext
@@ -26,18 +29,24 @@ import com.kelvsricafort101.wordpress.inventory.ui.settings.SettingsDataStore
 import com.kelvsricafort101.wordpress.inventory.ui.settings.SettingsViewModel
 import com.kelvsricafort101.wordpress.inventory.ui.settings.SettingsViewModelFactory
 import com.kelvsricafort101.wordpress.inventory.ui.theme.InventoryTheme
+import kotlinx.coroutines.launch
 import java.util.Locale
 
 /**
  * Top level composable that represents screens for the application.
  */
 @Composable
-fun InventoryApp(navController: NavHostController = rememberNavController()) {
+fun InventoryApp(
+    navController: NavHostController = rememberNavController()
+) {
     val context = LocalContext.current
     val currentConfiguration = LocalConfiguration.current
     val settingsDataStore = remember { SettingsDataStore(context = context.applicationContext) }
     val settingsViewModel: SettingsViewModel = viewModel(factory = SettingsViewModelFactory(settingsDataStore = settingsDataStore))
     val settingsUiState by settingsViewModel.uiState.collectAsState()
+    val application = context.applicationContext as InventoryApplication
+    val scope = rememberCoroutineScope()
+    var isSyncing by remember { mutableStateOf(false) }
 
     val configuration = remember(settingsUiState.appLanguage.code, context) {
         Configuration(currentConfiguration).apply {
@@ -61,7 +70,24 @@ fun InventoryApp(navController: NavHostController = rememberNavController()) {
                 navController = navController,
                 settingsUiState = settingsUiState,
                 onDarkModeChanged = settingsViewModel::setDarkMode,
-                onLanguageSelected = settingsViewModel::setLanguage
+                onLanguageSelected = settingsViewModel::setLanguage,
+                onSyncToCloud = {
+                    if (!isSyncing) {
+                        scope.launch {
+                            isSyncing = true
+
+                            try {
+                                application
+                                    .container
+                                    .firebaseItemsRepository
+                                    .sync()
+                            } finally {
+                                isSyncing = false
+                            }
+                        }
+                    }
+                },
+                isSyncing = isSyncing
             )
         }
     }

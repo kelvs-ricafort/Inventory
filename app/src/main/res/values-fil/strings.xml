@@ -45,6 +45,7 @@
     <string name="feature_update_item">Mag-update ng mga item sa imbentaryo</string>
     <string name="feature_sell_item">Magbenta ng mga item sa imbentaryo</string>
     <string name="feature_delete_item">Magtanggal ng mga item sa imbentaryo</string>
+    <string name="feature_sync">Online na pag-synchronize ng datos</string>
     <string name="feature_track_quantity">Subaybayan ang dami ng imbentaryo</string>
     <string name="feature_offline">Lokal na pag-iimbak ng datos para sa offline na paggamit</string>
 
@@ -67,4 +68,10 @@
     <string name="language_english">Ingles</string>
     <string name="language_filipino">Filipino</string>
     <string name="language_spanish">Español</string>
+    <string name="cloud_sync">Pag-sync sa Ulap</string>
+    <string name="sync_to_cloud">I-sync sa Cloud</string>
+    <string name="sync_to_cloud_description">I-sync ang iyong imbentaryo sa Firebase kapag may koneksyon sa internet.</string>
+    <string name="syncing">Nagsi-sync…</string>
+    <string name="sync_completed">Tapos na ang sync</string>
+
 </resources>

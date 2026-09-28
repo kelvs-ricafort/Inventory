@@ -33,6 +33,8 @@ fun InventoryNavHost(
     settingsUiState: SettingsUiState,
     onDarkModeChanged: (Boolean) -> Unit,
     onLanguageSelected: (AppLanguage) -> Unit,
+    onSyncToCloud: () -> Unit,
+    isSyncing: Boolean,
     modifier: Modifier = Modifier
 ) {
     val navBackStackEntry by navController.currentBackStackEntryAsState()
@@ -82,7 +84,9 @@ fun InventoryNavHost(
                     darkMode = settingsUiState.darkMode,
                     onDarkModeChanged = onDarkModeChanged,
                     selectedLanguage = AppLanguage.ENGLISH,
-                    onLanguageSelected = onLanguageSelected
+                    onLanguageSelected = onLanguageSelected,
+                    onSyncToCloud = onSyncToCloud,
+                    isSyncing = isSyncing
                 )
             }
 
