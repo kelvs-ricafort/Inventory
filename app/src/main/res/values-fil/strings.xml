@@ -49,6 +49,7 @@
     <string name="feature_track_quantity">Subaybayan ang dami ng imbentaryo</string>
     <string name="feature_offline">Lokal na pag-iimbak ng datos para sa offline na paggamit</string>
 
+    <string name="feature_dark_mode_support">Suporta sa Madilim na Mode</string>
     <string name="app_info">Impormasyon ng App</string>
     <string name="version">Bersyon: %1$s</string>
     <string name="build">Build: %1$d</string>

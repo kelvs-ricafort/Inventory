@@ -50,6 +50,7 @@
     <string name="feature_offline">Almacenamiento local de datos sin conexión</string>
 
     <!-- App Info -->
+    <string name="feature_dark_mode_support">Soporte para modo oscuro</string>
     <string name="app_info">Información de la aplicación</string>
     <string name="version">Versión: %1$s</string>
     <string name="build">Compilación: %1$d</string>

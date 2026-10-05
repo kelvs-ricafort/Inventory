@@ -16,6 +16,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Cloud
 import androidx.compose.material.icons.filled.CloudOff
+import androidx.compose.material.icons.filled.DarkMode
 import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material.icons.filled.Inventory2
@@ -210,6 +211,10 @@ fun AboutAppScreen(
                     FeatureItem(
                         icon = Icons.Default.Cloud,
                         text = stringResource(R.string.feature_sync)
+                    )
+                    FeatureItem(
+                        icon = Icons.Default.DarkMode,
+                        text = stringResource(R.string.feature_dark_mode_support)
                     )
                     FeatureItem(
                         icon = Icons.Default.CloudOff,
